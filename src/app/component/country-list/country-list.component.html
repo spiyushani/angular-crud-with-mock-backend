@@ -1,0 +1,31 @@
+<p-toast></p-toast>
+
+<p-toolbar styleClass="p-mb-4">
+  <ng-template pTemplate="left">
+    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+            (click)="openCreateModal()"></button>
+  </ng-template>
+</p-toolbar>
+
+<!--Table-->
+<p-table [value]="countries" [(selection)]="selectedCountry" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Capital</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-country>
+    <tr [pSelectableRow]="country">
+      <td>{{country.name}}</td>
+      <td>{{country.capital}}</td>
+      <td>
+        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                (click)="openEditModal(country)"></button>
+        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                (click)="deleteCountry(country)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

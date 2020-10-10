@@ -1,0 +1,30 @@
+<form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+
+  <div class="p-grid">
+    <div class="p-col p-field p-grid p-m-4 p-p-4">
+      <label for="id" class="p-col-fixed" style="width:100px">Id</label>
+      <div class="p-col">
+        <input id="id" type="text" formControlName="id" pInputText required autofocus>
+      </div>
+    </div>
+
+    <div class="p-col p-field p-grid p-m-4 p-p-4">
+      <label for="name" class="p-col-fixed" style="width:100px">Name</label>
+      <div class="p-col">
+        <input id="name" type="text" formControlName="name" pInputText required autofocus>
+      </div>
+    </div>
+
+    <div class="p-col p-field p-grid p-m-4 p-p-4">
+      <label for="capital" class="p-col-fixed" style="width:100px">Capital</label>
+      <div class="p-col">
+        <input id="capital" formControlName="capital" type="text" pInputText required autofocus>
+      </div>
+    </div>
+  </div>
+
+  <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+  <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" type="submit"
+          [disabled]="!countryForm.valid"></button>
+
+</form>
